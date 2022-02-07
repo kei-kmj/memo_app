@@ -1,7 +1,8 @@
 <form method="post" action="/memos">
-  <!--<form method = "patch" action="/memos/:title"> -->
   <br>
-  <input type="text" name="title" size="30" value=<%= File.basename(params[:title], ".*") %>>
+  <label>
+    <input type="text" name="title" size="30" value=<%= File.basename(params[:title], ".*") %>>
+  </label>
   <br>
   <p>
     <label for="t_content"></label><br>

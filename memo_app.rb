@@ -26,7 +26,7 @@ end
 
 # メモ追加
 post '/memos' do
-  File.open("./memos/#{params[:title]}.csv", 'w') do |file|
+  File.open("./memos/#{params[:title]}.csv", 'w', encoding: 'Shift_JIS:UTF-8') do |file|
     file.write(params[:content])
   end
   erb :new
@@ -40,19 +40,19 @@ end
 
 # メモ表示
 get '/memos/:title' do
-  @memo = File.open("./memos/#{params[:title]}")
+  @memo = File.open("./memos/#{params[:title]}", encoding: 'Shift_JIS:UTF-8')
   erb :show
 end
 
 # メモ編集画面を開く
 get '/memos/:title/edit' do
-  @memo = File.open("./memos/#{params[:title]}")
+  @memo = File.open("./memos/#{params[:title]}", encoding: 'Shift_JIS:UTF-8')
   erb :edit
 end
 
 # メモ編集
 patch '/memos' do
-  File.open("./memos/#{params[:title]}", 'w') do |file|
+  File.open("./memos/#{params[:title]}", 'w', encoding: 'Shift_JIS:UTF-8') do |file|
     file.write(params[:content])
   end
 end
