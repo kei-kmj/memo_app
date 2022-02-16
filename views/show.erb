@@ -1,9 +1,9 @@
 <br>
-<%= File.basename(params[:title], ".*") %>
+<%= File.basename(escape(params[:title]), ".*") %>
 <br>
 <p>
   <label for="t_content"></label><br>
-  <textarea id="t_content" name="content" placeholder="内容" cols="32" rows="10" readonly><%= escape(@memo.read) %></textarea>
+  <textarea id="t_content" name="content" placeholder="内容" cols="32" rows="10" readonly><%= @memo.read %></textarea>
 </p>
 
 
